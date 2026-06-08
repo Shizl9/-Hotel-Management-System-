@@ -1,0 +1,4 @@
+C:\Users\sheik\OneDrive\Documents\BAKEND\Hotel Management System\Hotel Management System\obj\Debug\net8.0\Hotel Management System.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\sheik\OneDrive\Documents\BAKEND\Hotel Management System\Hotel Management System\obj\Debug\net8.0\Hotel Management System.AssemblyInfoInputs.cache
+C:\Users\sheik\OneDrive\Documents\BAKEND\Hotel Management System\Hotel Management System\obj\Debug\net8.0\Hotel Management System.AssemblyInfo.cs
+C:\Users\sheik\OneDrive\Documents\BAKEND\Hotel Management System\Hotel Management System\obj\Debug\net8.0\Hotel Management System.csproj.CoreCompileInputs.cache
