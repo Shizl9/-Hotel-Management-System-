@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -26,5 +27,48 @@ namespace Hotel_Management_System.Services
 
             }
         }
+        public static BookingModel FindBookingById(List<BookingModel> bookingModels, string bookingId)
+        {
+            foreach (BookingModel b in bookingModels)
+            { 
+                if (b.bookingId== bookingId)//(bookid from bookingmodel== bookid from input)
+                {
+                    return b;// if matched return object b 
+                }
+                else { Console.WriteLine("not matching booking "); }
+            }
+            return null;// if not mached retrun null 
+        }
+        public static bool CancelBooking(BookingModel state )
+        {
+
+            bool flage = false;
+            if (state.status == "Cancelled")
+            {
+                flage=true;
+                Console.WriteLine("Cancelled succsessfully!");
+            }
+            else
+            {
+                Console.WriteLine("try again!");
+            }
+            return flage;
+            
+        }
+        public static bool CompleteBooking(BookingModel s)
+        {
+            bool flage = false;
+            if (s.status == "Compleated")
+            {
+                flage = true;
+                Console.WriteLine("Compleated booking" );
+            }
+            else
+            {
+                Console.WriteLine("try again!");
+            }
+            return flage;
+        }
+
     }
 }
