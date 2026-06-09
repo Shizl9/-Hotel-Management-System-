@@ -11,7 +11,32 @@ namespace Hotel_Management_System.Services
     {
         public static void DisplayAllGuests(List<GuestModel>guests)
         {
-            
+            foreach (var g in guests)
+            {
+                Console.WriteLine($"guest Id:{g.guestId}");
+                Console.WriteLine($"Full Name:{g.fullName}");
+                Console.WriteLine($"Email:{g.email}");
+                Console.WriteLine($"Phone Number:{g.phoneNumber}");
+
+            }
+        }
+        public static GuestModel FindGuestById(List<GuestModel> guests, string newguestId)
+        {
+            foreach (var gid in guests)
+            {
+
+                if (gid.guestId == newguestId)
+                {
+                    return gid;
+                }
+                else
+                {
+                    Console.WriteLine("not mached guest");
+                }
+
+            }
+
+            return null;
         }
     }
 }
