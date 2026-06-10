@@ -91,8 +91,8 @@ namespace Hotel_Management_System
             string guestid=Console.ReadLine();
             Console.WriteLine("Enter room number:");
             string roomNumber = Console.ReadLine();
-           var guest = GuestService.FindGuestById(context.guests, guestid);
-           var room = RoomService.FindRoomByNumber(context.rooms, roomNumber);
+            var guest = GuestService.FindGuestById(context.guests, guestid);
+            var room = RoomService.FindRoomByNumber(context.rooms, roomNumber);
             if (guest == null )
             {
                 Console.WriteLine("Not found guest id.");
@@ -115,14 +115,29 @@ namespace Hotel_Management_System
             int numberOfNights=Convert.ToInt32(Console.ReadLine());
             var totalprice = RoomService.CalculateTotalPrice(room, numberOfNights);
 
+            Console.WriteLine("Enter bookig id:");
+            string bookingId = Console.ReadLine();
+
+            context.bookings.Add(new BookingModel
+            {
+                status = "Confirmed",
+                bookingReviews = new List<ReviewModel>()
+            });
+
+            if(room.isAvailable == null)
+            {
+                room.isAvailable = false;
+            }
         }
         static void Main(string[] args)
         {
            HotelContext context = new HotelContext();
-           context.rooms = new List<RoomModel>();
-           context.reviews = new List<ReviewModel>();
-           context.staff = new List<StaffModel>();
+            context.guests = new List<GuestModel>();
+            context.rooms = new List<RoomModel>();
+            context.reviews = new List<ReviewModel>();
+            context.staff = new List<StaffModel>();
             context.bookings = new List<BookingModel>();
+           
         }
     }
 }
