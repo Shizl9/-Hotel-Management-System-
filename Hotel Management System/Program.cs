@@ -85,11 +85,44 @@ namespace Hotel_Management_System
         {
             StaffService.DisplayAllStaff(context.staff);
         }
+        public static void BookRoom(HotelContext context)
+        {
+            Console.WriteLine("Enter guest ID:");
+            string guestid=Console.ReadLine();
+            Console.WriteLine("Enter room number:");
+            string roomNumber = Console.ReadLine();
+           var guest = GuestService.FindGuestById(context.guests, guestid);
+           var room = RoomService.FindRoomByNumber(context.rooms, roomNumber);
+            if (guest == null )
+            {
+                Console.WriteLine("Not found guest id.");
+            }
+            else if (room == null)
+            {
+                Console.WriteLine(" Not found room number.");
+            }
+            else { Console.WriteLine("invalid input!"); }
 
+            if (room.isAvailable == false)
+            {
+                Console.WriteLine("room not available");
+            }
+            else { Console.WriteLine("room is available"); }
+
+            Console.WriteLine("Enter check in date:");
+            string checkInDate=Console.ReadLine();
+            Console.WriteLine("Enter number of nights:");
+            int numberOfNights=Convert.ToInt32(Console.ReadLine());
+            var totalprice = RoomService.CalculateTotalPrice(room, numberOfNights);
+
+        }
         static void Main(string[] args)
         {
-           HotelContext context = new HotelContext();  
-           
+           HotelContext context = new HotelContext();
+           context.rooms = new List<RoomModel>();
+           context.reviews = new List<ReviewModel>();
+           context.staff = new List<StaffModel>();
+            context.bookings = new List<BookingModel>();
         }
     }
 }
